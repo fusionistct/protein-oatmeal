@@ -1,0 +1,165 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://floor.png" type="Texture" id=2]
+[ext_resource path="res://Dialogue System copy/DialogBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sink_and_stove.png" type="Texture" id=4]
+[ext_resource path="res://table_with_protein.png" type="Texture" id=5]
+[ext_resource path="res://table_1.png" type="Texture" id=6]
+[ext_resource path="res://fridge.png" type="Texture" id=7]
+[ext_resource path="res://pantry.png" type="Texture" id=8]
+[ext_resource path="res://chair.png" type="Texture" id=9]
+[ext_resource path="res://Level.gd" type="Script" id=10]
+[ext_resource path="res://phone.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 208.654, 84.2803 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 37.5027, 132.029 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16.4167, 109.085 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 45.7076, 87.4256 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 51.8141, 64.84 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 25.9985, 71.4937 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 34.8171, 70.467 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 52.1024, 85.2829 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 57.022, 79.7099 )
+
+[node name="Level" type="Node2D"]
+position = Vector2( -1.31028, -0.982712 )
+script = ExtResource( 10 )
+
+[node name="floor" type="Sprite" parent="."]
+position = Vector2( 513.943, 298.18 )
+scale = Vector2( 0.800562, 0.839878 )
+texture = ExtResource( 2 )
+
+[node name="chair" type="Sprite" parent="."]
+position = Vector2( 564.904, 130.019 )
+scale = Vector2( 0.755136, 0.608758 )
+texture = ExtResource( 9 )
+
+[node name="Center Table" type="StaticBody2D" parent="."]
+
+[node name="table_1" type="Sprite" parent="Center Table"]
+position = Vector2( 563.568, 306.321 )
+scale = Vector2( 0.799423, 0.826351 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Center Table"]
+position = Vector2( 565.522, 266.445 )
+scale = Vector2( 0.799423, 0.826351 )
+shape = SubResource( 1 )
+
+[node name="phone" type="Sprite" parent="."]
+position = Vector2( 642.995, 249.297 )
+scale = Vector2( 0.316071, 0.327756 )
+texture = ExtResource( 11 )
+flip_v = true
+
+[node name="Stove" type="StaticBody2D" parent="."]
+
+[node name="sink_and_stove" type="Sprite" parent="Stove"]
+position = Vector2( 44.0124, 386.814 )
+scale = Vector2( 0.5749, 0.531666 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stove"]
+position = Vector2( 40.0987, 371.761 )
+shape = SubResource( 2 )
+
+[node name="InteractStove" type="Area2D" parent="Stove"]
+position = Vector2( 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stove/InteractStove"]
+modulate = Color( 0.14, 0.92, 0.08, 1 )
+position = Vector2( 74.8932, 388.336 )
+shape = SubResource( 3 )
+
+[node name="Fridge" type="StaticBody2D" parent="."]
+
+[node name="fridge" type="Sprite" parent="Fridge"]
+position = Vector2( 236.407, 96.512 )
+scale = Vector2( 0.757521, 0.566875 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fridge"]
+position = Vector2( 237.274, 91.6849 )
+shape = SubResource( 4 )
+
+[node name="InteractMilk" type="Area2D" parent="Fridge"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fridge/InteractMilk"]
+modulate = Color( 0.148289, 1, 0.0761099, 1 )
+position = Vector2( 236.633, 140.501 )
+shape = SubResource( 5 )
+
+[node name="Small Table" type="StaticBody2D" parent="."]
+position = Vector2( 199.388, 408.463 )
+
+[node name="table_with_protein" type="Sprite" parent="Small Table"]
+position = Vector2( 775.996, 21.18 )
+scale = Vector2( 0.5749, 0.531666 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Small Table"]
+position = Vector2( 777.474, -3 )
+shape = SubResource( 6 )
+
+[node name="InteractProtein" type="Area2D" parent="Small Table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Small Table/InteractProtein"]
+modulate = Color( 0.25, 0.88, 0.05, 1 )
+position = Vector2( 774.577, 6.93658 )
+shape = SubResource( 7 )
+
+[node name="Pantry" type="StaticBody2D" parent="."]
+
+[node name="pantry" type="Sprite" parent="Pantry"]
+position = Vector2( 941.103, 98.5121 )
+scale = Vector2( 0.463575, 0.480873 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pantry"]
+position = Vector2( 940.322, 69.7165 )
+shape = SubResource( 8 )
+
+[node name="InteractOats" type="Area2D" parent="Pantry"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pantry/InteractOats"]
+modulate = Color( 0.0147992, 1, 0.376553, 1 )
+position = Vector2( 944.26, 102.907 )
+shape = SubResource( 9 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 263.967, 435.785 )
+
+[node name="Textbox" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( -0.1753, -1.508e-05 )
+
+[connection signal="body_entered" from="Stove/InteractStove" to="." method="_on_InteractStove_body_entered"]
+[connection signal="body_exited" from="Stove/InteractStove" to="." method="_on_InteractStove_body_exited"]
+[connection signal="body_entered" from="Fridge/InteractMilk" to="." method="_on_InteractMilk_body_entered"]
+[connection signal="body_exited" from="Fridge/InteractMilk" to="." method="_on_InteractMilk_body_exited"]
+[connection signal="body_entered" from="Small Table/InteractProtein" to="." method="_on_InteractProtein_body_entered"]
+[connection signal="body_exited" from="Small Table/InteractProtein" to="." method="_on_InteractProtein_body_exited"]
+[connection signal="body_entered" from="Pantry/InteractOats" to="." method="_on_InteractOats_body_entered"]
+[connection signal="body_exited" from="Pantry/InteractOats" to="." method="_on_InteractOats_body_exited"]
+
+[editable path="Player"]
+[editable path="Textbox"]
